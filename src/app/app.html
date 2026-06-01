@@ -1,0 +1,17 @@
+<div class="vjs-bar-column-chart">
+  @for(chart of charts; track chart) {
+    <div class="vjs-chart-example">
+      <div class="vjs-chart-example-title">{{chart.desc}}</div>
+      @if(chart.comments) {
+        <div class="vjs-chart-example-comments">{{chart.comments}}</div>
+      }
+      <div class="vjs-chart-example-container">
+        @if(chart.type === 'scatter') {
+          <vjs-scatter-chart [options]="chart.options"></vjs-scatter-chart>
+        } @else if (chart.type === 'bubble') {
+          <vjs-bubble-chart [options]="$any(chart.options)"></vjs-bubble-chart>
+        }
+      </div>
+    </div>
+  }
+</div>
